@@ -10,6 +10,7 @@
             "includePath": [
                 "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/include",
                 "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/src",
+                "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/.pio/libdeps/uno/Servo/src",
                 "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/.pio/libdeps/uno/IRremote/src",
                 "C:/Users/Adu-P/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/Adu-P/.platformio/packages/framework-arduino-avr/variants/standard",
@@ -25,6 +26,7 @@
                 "path": [
                     "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/include",
                     "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/src",
+                    "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/.pio/libdeps/uno/Servo/src",
                     "c:/Users/Adu-P/Documents/git-repos/IR-volume-control/.pio/libdeps/uno/IRremote/src",
                     "C:/Users/Adu-P/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/Adu-P/.platformio/packages/framework-arduino-avr/variants/standard",
