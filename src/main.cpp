@@ -2,33 +2,70 @@
 #include <IRremote.h>
 #include <Servo.h>
 
+void volumeUp(void);
+void volumeDown(void);
+
 Servo myservo;
-
-int potpin = 0;
-int val;
-
-int vol;
+int vol = 50;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("Hello");
-  IrReceiver.begin(11, ENABLE_LED_FEEDBACK);
-
-  myservo.attach(9);
-
-  vol = myservo.read();
+  IrReceiver.begin(13, ENABLE_LED_FEEDBACK);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (IrReceiver.decode()) {
-    Serial.println(IrReceiver.decodedIRData.command);
-    IrReceiver.resume(); // Enable receiving of the next value
-  }
+    int command = IrReceiver.decodedIRData.command;
+    Serial.println(command);
 
-  val = analogRead(potpin);
-  val = map(val, 0, 1023, 0, 180);
-  myservo.write(val);
-  delay(15);
+    if (command == 2) {
+      myservo.attach(9);
+
+      if (myservo.attached()) {
+        volumeUp();
+      }
+
+      if (myservo.attached()) {
+        myservo.detach();
+      }
+    }
+
+    else if (command == 3) {
+      myservo.attach(9);
+
+      if (myservo.attached()) {
+        volumeDown();
+      }
+
+      if (myservo.attached()) {
+        myservo.detach();
+      }
+    }
+    IrReceiver.resume();
+  }
+}
+
+void volumeUp() {
+  if (vol > 20) {
+    vol = vol - 10;
+    Serial.println(vol);
+    myservo.write(vol);
+    delay(200);
+    myservo.detach();
+    Serial.println("Successful");
+  }
+}
+
+void volumeDown() {
+  if (vol < 120) {
+    vol = vol + 10;
+    Serial.println(vol);
+    myservo.write(vol);
+    delay(200);
+    myservo.detach();
+    Serial.println("Successful");
+  }
 }
